@@ -5,6 +5,8 @@ use App\Models\User;
 use Firebase\JWT\JWT;
 use Firebase\JWT\ExpiredException;
 use Closure;
+use Exception;
+
 use Illuminate\Http\Request;
 
 class JwtMiddleware

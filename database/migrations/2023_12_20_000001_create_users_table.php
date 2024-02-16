@@ -20,6 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('cedula', 191)->unique();
             $table->string('correo', 191)->unique();
             $table->string('telefono');
+            $table->string('password');
+            $table->longText('cedula_front')->nullable();
+            $table->longText('cedula_later')->nullable();
+            $table->string('address')->default('N/A');
+            $table->string('code');
+            $table->string('status')->default('false');
+            
             $table->timestamps();
         });
     }

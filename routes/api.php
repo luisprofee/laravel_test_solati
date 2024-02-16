@@ -17,7 +17,24 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Modulo de Registro
 Route::apiResource('users', 'UserController');
-Route::post('/register/client',[App\Http\Controllers\ClientController::class, 'store']);
+
+//Modulo de autenticación
 Route::post('/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
+
+//Modulo de activar la Cuenta
+
+Route::post('/validate/cuenta',[App\Http\Controllers\UserController::class, 'validateCode']);
+
+//listar configuraciones y carroceria
+
+Route::get('list/options',[App\Http\Controllers\SettingController::class, 'index']);
+
+// listar vehiculos del usuario
+
+Route::get('/list/vehicles/{id}',[App\Http\Controllers\VehicleController::class, 'index']);
+
+//Crear Vehiculos asociados a un usuario
+
+Route::post('/create/vehicle',[App\Http\Controllers\VehicleController::class, 'store']);

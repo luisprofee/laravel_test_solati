@@ -34,6 +34,7 @@ class UserStoreRequest extends FormRequest
             'cedula' => 'required|numeric|unique:users',
             'correo' => 'required|unique:users,correo|email',
             'telefono' => 'required|numeric',
+            'password' => 'required',
         ];
     }
 
@@ -50,6 +51,8 @@ class UserStoreRequest extends FormRequest
             'correo.email' => 'El :attribute no es válido',
             'telefono.required' => 'El :attribute es obligatorio.',
             'telefono.numeric' => 'El :attribute debe ser un campo númerico',
+            'password.required' => 'El :attribute es obligatorio.',
+
         ];
     }
 
